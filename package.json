@@ -1,0 +1,84 @@
+{
+    "name": "taqadatamodel",
+    "version": "1.0.0",
+    "description": "A simple CAP project.",
+    "repository": "<Add your repository here>",
+    "license": "UNLICENSED",
+    "private": true,
+    "dependencies": {
+        "@sap-cloud-sdk/connectivity": "^3.12.1",
+        "@sap-cloud-sdk/http-client": "^3.16.0",
+        "@sap-cloud-sdk/mail-client": "^3.12.1",
+        "@sap/cds": "^7",
+        "@sap/cds-hana": "^2",
+        "@sap/cds-odata-v2-adapter-proxy": "^1",
+        "@sap/xsenv": "^3",
+        "@sap/xssec": "^3.6.1",
+        "axios": "^1.6.8",
+        "cds-swagger-ui-express": "^0.5.0",
+        "cjs": "^0.0.11",
+        "cjs-loader": "^0.1.0",
+        "debug": "^4.3",
+        "express": "^4",
+        "hdb": "^0.19.0",
+        "passport": "^0.7.0",
+        "sap-cf-axios": "^1.0.2"
+    },
+    "devDependencies": {
+        "@cap-js/sqlite": "^1",
+        "@sap/cds-dk": "^7",
+        "@sap/hdi-deploy": "4.8.2",
+        "rimraf": "^3.0.2"
+    },
+    "scripts": {
+        "start": "cds-serve",
+        "undeploy": "cf undeploy taqadatamodel --delete-services --delete-service-keys --delete-service-brokers",
+        "build": "rimraf resources mta_archives && mbt build --mtar archive",
+        "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
+    },
+    "cds": {
+        "requires": {
+            "TAQA_BPA": {
+                "kind": "rest",
+                "credentials": {
+                    "destination": "TAQA_BPA",
+                    "forwardAuthToken" : true
+                }
+            },
+            "TAQA_BPA_CPI": {
+                "kind": "rest",
+                "credentials": {
+                    "destination": "TAQA_BPA_CPI",
+                    "forwardAuthToken" : true
+                }
+            },
+            "ZHCM_PRJ_TS_POST_OTAB_SRV": {
+                "model":"srv/external/ZHCM_PRJ_TS_POST_OTAB_SRV",
+                "kind": "odata-v2",
+                "csrf": true,
+                "csrfInBatch": true,
+                "credentials": {
+                    "destination": "BTP_TO_ECP",
+                    "path":"/sap/opu/odata/sap/ZHCM_PRJ_TS_POST_OTAB_SRV"
+                }
+            },
+            "db": {
+                "kind": "sql"
+            },
+            "uaa": {
+                "kind": "xsuaa"
+            },
+            "auth": {
+                "[production]": {
+                    "strategy": "JWT"
+                }
+            }
+        },
+        "hana": {
+            "deploy-format": "hdbtable"
+        },
+        "features": {
+            "fiori_preview": true
+        }
+    }
+}

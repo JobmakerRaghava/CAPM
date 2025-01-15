@@ -1,0 +1,38 @@
+{
+  "xsappname": "taqadatamodel",
+  "tenant-mode": "dedicated",
+  "description": "Security profile of called application",
+  "scopes": [
+    {
+      "name": "uaa.user",
+      "description": "UAA"
+    },
+    {
+      "name": "$XSAPPNAME.user",
+      "description": "User role for timesheet"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "Token_Exchange",
+      "description": "UAA",
+      "scope-references": [
+        "uaa.user"
+      ]
+    },
+    {
+      "name": "TAQA_TIMESHEET_SERVICE",
+      "description": "Timesheet backend service",
+      "scope-references": [
+        "$XSAPPNAME.user"
+      ]
+    }
+
+  ],
+  "oauth2-configuration": {
+    "token-validity": 3600,
+    "redirect-uris": [
+        "https://*.cfapps.*.hana.ondemand.com/login/callback"
+    ]
+  }
+}

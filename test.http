@@ -1,0 +1,192 @@
+###
+GET http://localhost:4004/v2/taqa-srv/TimeSheetDetails
+content-type: application/json
+
+###
+GET http://localhost:4004/v2/taqa-srv/AbsenceRecordsFunc
+content-type: application/json
+
+###
+GET http://localhost:4004/v2/taqa-srv/ApproveTimesheet()
+content-type: application/json
+
+###
+GET http://localhost:4004/v2/taqa-srv/EmployeeEmailAlerts
+content-type: application/json
+
+###
+GET http://localhost:4004/v2/taqa-srv/ApproveEmailAlerts
+content-type: application/json
+
+###
+GET http://localhost:4004/v2/taqa-srv/ReturnMail
+content-type: application/json
+
+
+###
+GET http://localhost:4004/v2/taqa-srv/ProcessRecords
+content-type: application/json
+
+###
+GET http://localhost:4004/v2/taqa-srv/TravelMasterDataUpdate
+content-type: application/json
+
+
+###
+POST http://localhost:4004/v2/taqa-srv/PostAllowance
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vdGFxYS1kZXYtZmlvcmkuYXV0aGVudGljYXRpb24uZXUxMC5oYW5hLm9uZGVtYW5kLmNvbS90b2tlbl9rZXlzIiwia2lkIjoiZGVmYXVsdC1qd3Qta2V5LTRmNGUwYjA0YzYiLCJ0eXAiOiJKV1QiLCJqaWQiOiAiSHNyOTl4TEoxQXVIQU9YelRMckF5eFozTmxwbDdUelJoWUQwWXBLTVFIVT0ifQ.eyJqdGkiOiI3OTdlOTIyZGMwZjU0OGExYTdjNGE1N2ZiNmU2ZmYzZiIsImV4dF9hdHRyIjp7ImVuaGFuY2VyIjoiWFNVQUEiLCJzdWJhY2NvdW50aWQiOiI1OThkZjA3ZS01NjM0LTQ4ZmEtOTRmZC03NzQ5Mzg5NjhiNjAiLCJ6ZG4iOiJ0YXFhLWRldi1maW9yaSJ9LCJzdWIiOiJzYi10YXFhZGF0YW1vZGVsIXQ0MjQxMTYiLCJhdXRob3JpdGllcyI6WyJ1YWEucmVzb3VyY2UiXSwic2NvcGUiOlsidWFhLnJlc291cmNlIl0sImNsaWVudF9pZCI6InNiLXRhcWFkYXRhbW9kZWwhdDQyNDExNiIsImNpZCI6InNiLXRhcWFkYXRhbW9kZWwhdDQyNDExNiIsImF6cCI6InNiLXRhcWFkYXRhbW9kZWwhdDQyNDExNiIsImdyYW50X3R5cGUiOiJjbGllbnRfY3JlZGVudGlhbHMiLCJyZXZfc2lnIjoiNGFjYjg1ODMiLCJpYXQiOjE3MjM3MjEwOTMsImV4cCI6MTcyMzcyNDY5MywiaXNzIjoiaHR0cHM6Ly90YXFhLWRldi1maW9yaS5hdXRoZW50aWNhdGlvbi5ldTEwLmhhbmEub25kZW1hbmQuY29tL29hdXRoL3Rva2VuIiwiemlkIjoiNTk4ZGYwN2UtNTYzNC00OGZhLTk0ZmQtNzc0OTM4OTY4YjYwIiwiYXVkIjpbInVhYSIsInNiLXRhcWFkYXRhbW9kZWwhdDQyNDExNiJdfQ.quKpuWtI14M5iekIcjKaAnMiIl8iCjGvKNgeBBpjg2QjtuWP35S-ZFeKKbVZjQyoSAuXlLAA0lkjaJAFPc-YFhRF69VdGyJfIZdjtlNduOo072l1zZbteacGlIzG3oS1rmRUtVBAGTOV1ITeXBQzlaLxtkVDwUX__-u2gcXrcHatuf8_T7zxZ6fe5wiTIo6BQKAL3P22LnfkX3nOrtTscuMg1QR-0EI-b9VukZ9xo6swAJpPmMugJthOf32EAVxYyf88OkIJ73-K-oHStYE7H0D4PTooPqP_f_hqLp156DBe40rAigCndKMy_FyRgT29dIWMRe4BYxgwCF4qXhc0OA
+
+{"parameter":[{"Status":"Approved","AppID":"EMPTIM","ID":"f8873a66-8edf-4c6f-bfab-4ed7bf2c0f45","WbsCode":"SA400000004WLS048","CostCenter":"","InternalOrder":"","EmployeeID":"10005","Date":"2024-07-20","ItsAllowances":[{"Date":"2024-07-20","InternalOrder":"","EmployeeID":"10005","CostCenter":"","WbsCode":"SA400000004WLS048","AllowanceID":"9000","AllowanceDesc":"Overtime","Amount":"278.51","Number":"6.00","ReferenceKey":"10005240720900056","Reversed":"","Status":"Not yet Replicated","HistoryRecord":""},{"Date":"2024-07-20","InternalOrder":"","EmployeeID":"10005","CostCenter":"","WbsCode":"SA400000004WLS048","AllowanceID":"9050","AllowanceDesc":"Job Bonus","Amount":"350","Number":"1","ReferenceKey":"100052407209050IR","Reversed":"","Status":"Replicated","HistoryRecord":""},{"Date":"2024-07-20","InternalOrder":"","EmployeeID":"10005","CostCenter":"","WbsCode":"SA400000004WLS048","AllowanceID":"9100","AllowanceDesc":"Meal Allowance","Amount":"70","Number":"1","ReferenceKey":"100052407209100EI","Reversed":"","Status":"Replicated","HistoryRecord":""}]},{"Status":"Approved","AppID":"EMPTIM","ID":"8b826586-4302-4a18-99e6-8b914e3e1e65","WbsCode":"SA400000004WLS048","CostCenter":"","InternalOrder":"","EmployeeID":"10005","Date":"2024-07-21","ItsAllowances":[{"Date":"2024-07-21","InternalOrder":"","EmployeeID":"10005","CostCenter":"","WbsCode":"SA400000004WLS048","AllowanceID":"9050","AllowanceDesc":"Job Bonus","Amount":"350","Number":"1","ReferenceKey":"10005240721905005","Reversed":"","Status":"Replicated","HistoryRecord":""}]}],"wageInputs":[{"Reversed":"","Employeenumber":"10005","Validitydate":"2024-07-20","WageType":"9050","Number":"1","Time":"","Amount":"","ReferenceKey":"100052407209050IR","CostCenter":"","WBS":"SA400000004WLS048","InternalOrder":"","NetworkNumber":"","ActivityNumber":"","LogicalSystem":"BTP","ReferenceTransaction":"EXT"},{"Reversed":"","Employeenumber":"10005","Validitydate":"2024-07-20","WageType":"9100","Number":"1","Time":"","Amount":"","ReferenceKey":"100052407209100EI","CostCenter":"","WBS":"SA400000004WLS048","InternalOrder":"","NetworkNumber":"","ActivityNumber":"","LogicalSystem":"BTP","ReferenceTransaction":"EXT"},{"Reversed":"","Employeenumber":"10005","Validitydate":"2024-07-21","WageType":"9050","Number":"1","Time":"","Amount":"","ReferenceKey":"10005240721905005","CostCenter":"","WBS":"SA400000004WLS048","InternalOrder":"","NetworkNumber":"","ActivityNumber":"","LogicalSystem":"BTP","ReferenceTransaction":"EXT"}],"lockData":[{"AppID":"EMPTIM","Department":"80000057","Lock":"X","ProjectCode":"SA-400-000004.WLS048","ProjectDesc":"Nonbudget sub Service Line"}]}
+###
+POST http://localhost:4004/v2/taqa-srv/OtabSet
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsImprdSI6Imh0dHBzOi8vdGFxYS1kZXYtZmlvcmkuYXV0aGVudGljYXRpb24uZXUxMC5oYW5hLm9uZGVtYW5kLmNvbS90b2tlbl9rZXlzIiwia2lkIjoiZGVmYXVsdC1qd3Qta2V5LTRmNGUwYjA0YzYiLCJ0eXAiOiJKV1QiLCJqaWQiOiAiSHNyOTl4TEoxQXVIQU9YelRMckF5eFozTmxwbDdUelJoWUQwWXBLTVFIVT0ifQ.eyJqdGkiOiI3OTdlOTIyZGMwZjU0OGExYTdjNGE1N2ZiNmU2ZmYzZiIsImV4dF9hdHRyIjp7ImVuaGFuY2VyIjoiWFNVQUEiLCJzdWJhY2NvdW50aWQiOiI1OThkZjA3ZS01NjM0LTQ4ZmEtOTRmZC03NzQ5Mzg5NjhiNjAiLCJ6ZG4iOiJ0YXFhLWRldi1maW9yaSJ9LCJzdWIiOiJzYi10YXFhZGF0YW1vZGVsIXQ0MjQxMTYiLCJhdXRob3JpdGllcyI6WyJ1YWEucmVzb3VyY2UiXSwic2NvcGUiOlsidWFhLnJlc291cmNlIl0sImNsaWVudF9pZCI6InNiLXRhcWFkYXRhbW9kZWwhdDQyNDExNiIsImNpZCI6InNiLXRhcWFkYXRhbW9kZWwhdDQyNDExNiIsImF6cCI6InNiLXRhcWFkYXRhbW9kZWwhdDQyNDExNiIsImdyYW50X3R5cGUiOiJjbGllbnRfY3JlZGVudGlhbHMiLCJyZXZfc2lnIjoiNGFjYjg1ODMiLCJpYXQiOjE3MjM3MjEwOTMsImV4cCI6MTcyMzcyNDY5MywiaXNzIjoiaHR0cHM6Ly90YXFhLWRldi1maW9yaS5hdXRoZW50aWNhdGlvbi5ldTEwLmhhbmEub25kZW1hbmQuY29tL29hdXRoL3Rva2VuIiwiemlkIjoiNTk4ZGYwN2UtNTYzNC00OGZhLTk0ZmQtNzc0OTM4OTY4YjYwIiwiYXVkIjpbInVhYSIsInNiLXRhcWFkYXRhbW9kZWwhdDQyNDExNiJdfQ.quKpuWtI14M5iekIcjKaAnMiIl8iCjGvKNgeBBpjg2QjtuWP35S-ZFeKKbVZjQyoSAuXlLAA0lkjaJAFPc-YFhRF69VdGyJfIZdjtlNduOo072l1zZbteacGlIzG3oS1rmRUtVBAGTOV1ITeXBQzlaLxtkVDwUX__-u2gcXrcHatuf8_T7zxZ6fe5wiTIo6BQKAL3P22LnfkX3nOrtTscuMg1QR-0EI-b9VukZ9xo6swAJpPmMugJthOf32EAVxYyf88OkIJ73-K-oHStYE7H0D4PTooPqP_f_hqLp156DBe40rAigCndKMy_FyRgT29dIWMRe4BYxgwCF4qXhc0OA
+
+{
+        "Reversed":"",
+        "Employeenumber":"10004",
+        "Validitydate":"2024-05-16",
+        "WageType":"9265",
+        "Number":"1",
+        "Time":"",
+        "Amount":"",
+        "ReferenceKey":"10004240516926TEST1",
+        "CostCenter":"",
+        "WBS":"SA400000004 WLS04",
+        "InternalOrder":"",
+        "NetworkNumber":"",
+        "ActivityNumber":"",
+        "LogicalSystem":"BTP",
+        "ReferenceTransaction":"EXT"
+  }
+
+###
+GET http://localhost:4004/v2/taqa-srv/MasterDataUpdate
+content-type: application/json
+
+###
+GET http://localhost:4004/v2/taqa-srv/ClaimMasterDataUpdate
+content-type: application/json
+
+
+###
+GET http://localhost:4004/v2/taqa-srv/ApprovalStatus?$filter=AppID eq 'EMPTIM'
+content-type: application/json
+
+###
+GET http://localhost:4004/v2/taqa-srv/GetDuplicate?tableName=/Allowance
+content-type: application/json
+
+
+###
+POST http://localhost:4004/v2/taqa-srv/sendEditNotification
+content-type: application/json
+
+{
+  "name": "Gayathri",
+  "receiverMail": "vegayathri@kaartech.com",
+  "EditedDate":"08-12-2024",
+  "AdminName":"Prajeshwar",
+  "editnotificationdata":[{
+    "Date":"08-12-2024",
+    "OldOvertime":"5",
+    "NewOvertime":"6",
+    "OldWorkType":"Working (OFFICE/BASE)",
+    "NewWorkType":"Working (FIELD/BASE)",
+    "AllowanceRemoved":"9265,9235",
+    "AllowanceAdded":"9040"
+  },
+ {
+    "Date":"09-12-2024",
+    "OldOvertime":"5",
+    "NewOvertime":"6",
+    "OldWorkType":"Working (OFFICE/BASE)",
+    "NewWorkType":"Working (FIELD/BASE)",
+    "AllowanceRemoved":"9265,9235",
+    "AllowanceAdded":"9040"
+  },
+  {
+    "Date":"10-12-2024",
+    "OldOvertime":"5",
+    "NewOvertime":"6",
+    "OldWorkType":"Working (OFFICE/BASE)",
+    "NewWorkType":"Working (FIELD/BASE)",
+    "AllowanceRemoved":"9265,9235",
+    "AllowanceAdded":"9040"
+  }
+  ]
+}
+
+
+###
+GET http://localhost:4004/v2/taqa-srv/ClaimMasterDataUpdate
+content-type: application/json
+
+
+###
+POST http://localhost:4004/v2/taqa-srv/Files(36c9a779-619c-4c43-a9ca-a4f771cf806e)
+Content-Type: image/png
+Content-Disposition: attachment
+ 
+< ./image/t2.png
+
+###
+GET http://localhost:4004/v2/taqa-srv/Files(36c9a779-619c-4c43-a9ca-a4f771cf806e)/content
+
+ 
+
+
+###
+GET http://localhost:4004/v2/taqa-srv/Claims(guid'a28e6764-ec88-479f-95ca-3d638d95985a')/Attachment
+content-type: application/json
+
+###
+GET http://localhost:4004/v2/taqa-srv/UpdateAccrual
+content-type: application/json
+
+
+###
+POST http://localhost:4004/v2/taqa-srv/AccrualPosting
+Content-Type: application/json
+
+{
+  "payload": [
+    {
+      "ExternalCode": "EX123223",
+      "TimeAccountExternalCode": "TA12ee3",
+      "EmployeeID": "EMP001",
+      "BookingUnit": "DAYS",
+      "ReferenceObject": "",
+      "BookingType": "ACCRUAL",
+      "BookingDate": "2024-01-01",
+      "EmployeeTime": "",
+      "BookingAmount": "0.5",
+      "Comment": "Leave adjustment",
+      "Status": "error"
+    },
+    {
+      "ExternalCode": "EX12d4",
+      "TimeAccountExternalCode": "TAww124",
+      "EmployeeID": "EMP002",
+      "BookingUnit": "DAYS",
+      "ReferenceObject": "",
+      "BookingType": "ACCRUAL",
+      "BookingDate": "2024-01-02",
+      "EmployeeTime": "6",
+      "BookingAmount": "50",
+      "Comment": "Sick day",
+      "Status": "error"
+    }
+  ]
+}
+
+
+###
+GET http://localhost:4004/v2/taqa-srv/AccrualEmailNotification
+content-type: application/json
+
+
+###
+GET http://localhost:4004/v2/taqa-srv/OpenRecordCreation
+content-type: application/json

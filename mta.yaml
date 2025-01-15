@@ -1,0 +1,132 @@
+_schema-version: '3.1'
+ID: taqadatamodel
+description: A simple CAP project.
+version: 1.0.0
+modules:
+  - name: taqadatamodel-srv
+    type: nodejs
+    path: gen/srv
+    requires:
+      - name: taqadatamodel-db
+      - name: uaa_taqadatamodel
+      - name: taqadatamodel-destination-service
+    provides:
+      - name: taqamodel-srv-url
+        properties:
+          taqamodel-srv-url: '${default-url}'
+    parameters:
+      buildpack: nodejs_buildpack
+      readiness-health-check-http-endpoint: /health
+      readiness-health-check-type: http
+      memory: 8192M
+      sizeLimit: 8
+      instance: 3
+      disk-quota: 4096M
+    build-parameters:
+      builder: npm
+  - name: taqadatamodel-db-deployer
+    type: hdb
+    path: gen/db
+    requires:
+      - name: taqadatamodel-db
+      - name: uaa_taqadatamodel
+    parameters:
+      buildpack: nodejs_buildpack
+  - name: taqadatamodel-approuter
+    type: approuter.nodejs
+    path: taqadatamodel-approuter
+    requires:
+      - name: taqadatamodel_html_repo_runtime
+      - name: uaa_taqadatamodel
+      - name: taqamodel-srv-url
+        group: destinations
+        properties:
+          forwardAuthToken: true
+          name: taqamodel-srv-url
+          timeout: 600000
+          url: '~{taqamodel-srv-url}'
+        parameters:
+          disk-quota: 256M
+          memory: 256M
+      - name: taqadatamodel-destination-service
+        group: destinations
+        properties:
+          forwardAuthToken: false
+          name: ui5
+          url: 'https://ui5.sap.com'
+  - name: taqadatamodel-app-content
+    type: com.sap.application.content
+    path: .
+    requires:
+      - name: taqadatamodel_html_repo_host
+        parameters:
+          content-target: true
+    build-parameters:
+      build-result: resources
+      requires:
+        - artifacts:
+            - tagamodeluitagamodelui.zip
+          name: tagamodeluitagamodelui
+          target-path: resources/
+  - name: tagamodeluitagamodelui
+    type: html5
+    path: tagamodelui
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm install
+        - 'npm run build:cf'
+      supported-platforms: []
+resources:
+  - name: taqadatamodel-db
+    type: com.sap.xs.hdi-container
+    parameters:
+      config:
+        schema: taqa
+      service: hana
+      service-plan: hdi-shared
+  - name: taqadatamodel_html_repo_runtime
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-runtime
+  - name: uaa_taqadatamodel
+    type: org.cloudfoundry.managed-service
+    parameters:
+      path: ./xs-security.json
+      service: xsuaa
+      service-name: taqadatamodel-xsuaa-service
+      service-plan: application
+  - name: taqadatamodel_html_repo_host
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-host
+  - name: taqadatamodel-destination-service
+    type: org.cloudfoundry.managed-service
+    parameters:
+      config:
+        HTML5Runtime_enabled: false
+        init_data:
+          instance:
+            destinations:
+              - Authentication: NoAuthentication
+                Name: ui5
+                ProxyType: Internet
+                Type: HTTP
+                URL: 'https://ui5.sap.com'
+            existing_destinations_policy: update
+        version: 1.0.0
+      service: destination
+      service-name: taqadatamodel-destination-service
+      service-plan: lite
+parameters:
+  deploy_mode: html5-repo
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npm ci
+        - npx cds build --production
