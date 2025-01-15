@@ -1,0 +1,28 @@
+VIEW taqa_srv_TaqaDbService_RowInfo AS SELECT
+  RowInfo_0.createdAt,
+  RowInfo_0.createdBy,
+  RowInfo_0.modifiedAt,
+  RowInfo_0.modifiedBy,
+  RowInfo_0.DELETED,
+  RowInfo_0.ID,
+  RowInfo_0.TableName,
+  RowInfo_0.Column1,
+  RowInfo_0.Column2,
+  RowInfo_0.Column3,
+  RowInfo_0.Column4,
+  RowInfo_0.Column5,
+  RowInfo_0.Column6,
+  RowInfo_0.Column7,
+  RowInfo_0.Column8,
+  RowInfo_0.Column9,
+  RowInfo_0.Column10,
+  RowInfo_0.Column11,
+  RowInfo_0.Column12,
+  RowInfo_0.Column13,
+  RowInfo_0.Column14,
+  RowInfo_0.Column15,
+  RowInfo_0.Column16,
+  RowInfo_0.Column17,
+  RowInfo_0.Column18
+FROM taqa_db_RowInfo AS RowInfo_0
+WHERE RowInfo_0.DELETED = FALSE

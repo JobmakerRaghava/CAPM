@@ -1,0 +1,9 @@
+COLUMN TABLE taqa_db_WorkType (
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  DELETED BOOLEAN DEFAULT FALSE,
+  WorkTypeID NVARCHAR(50) DEFAULT '',
+  WorkDesc NVARCHAR(50) DEFAULT ''
+)

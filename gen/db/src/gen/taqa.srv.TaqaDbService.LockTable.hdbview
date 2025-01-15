@@ -1,0 +1,14 @@
+VIEW taqa_srv_TaqaDbService_LockTable AS SELECT
+  LockTable_0.createdAt,
+  LockTable_0.createdBy,
+  LockTable_0.modifiedAt,
+  LockTable_0.modifiedBy,
+  LockTable_0.DELETED,
+  LockTable_0.ID,
+  LockTable_0.AppID,
+  LockTable_0.ProjectCode,
+  LockTable_0.Department,
+  LockTable_0.Lock,
+  LockTable_0.ProjectDesc
+FROM taqa_db_LockTable AS LockTable_0
+WHERE LockTable_0.DELETED = FALSE

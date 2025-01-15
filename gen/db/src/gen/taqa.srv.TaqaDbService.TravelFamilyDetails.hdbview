@@ -1,0 +1,19 @@
+VIEW taqa_srv_TaqaDbService_TravelFamilyDetails AS SELECT
+  TravelFamilyDetails_0.createdAt,
+  TravelFamilyDetails_0.createdBy,
+  TravelFamilyDetails_0.modifiedAt,
+  TravelFamilyDetails_0.modifiedBy,
+  TravelFamilyDetails_0.DELETED,
+  TravelFamilyDetails_0.parent_ID,
+  TravelFamilyDetails_0.ID,
+  TravelFamilyDetails_0.ExternalCode,
+  TravelFamilyDetails_0.FirstName,
+  TravelFamilyDetails_0.MiddleName,
+  TravelFamilyDetails_0.LastName,
+  TravelFamilyDetails_0.Title,
+  TravelFamilyDetails_0.Relationship,
+  TravelFamilyDetails_0.DateOfBirth
+FROM taqa_db_TravelFamilyDetails AS TravelFamilyDetails_0
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN taqa_srv_TaqaDbService_TravelDetails AS parent ON (parent.ID = parent_ID)
+)

@@ -1,0 +1,31 @@
+COLUMN TABLE taqa_db_Claims (
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  DELETED BOOLEAN DEFAULT FALSE,
+  parent_ClaimId NVARCHAR(100) DEFAULT '',
+  ID NVARCHAR(36) NOT NULL,
+  AssignmentNumber NVARCHAR(100) DEFAULT '',
+  Attachment BLOB,
+  AttachmentType NVARCHAR(256) DEFAULT '',
+  BenefitSubtype NVARCHAR(100) DEFAULT '',
+  EducationAssistance NVARCHAR(100) DEFAULT '',
+  WageDescription NVARCHAR(100) DEFAULT '',
+  Description NVARCHAR(500) DEFAULT '',
+  Amount NVARCHAR(100) DEFAULT '',
+  WageType NVARCHAR(100) DEFAULT '',
+  AcademicStartDate NVARCHAR(100) DEFAULT '',
+  AcademicEndDate NVARCHAR(100) DEFAULT '',
+  AgeofChild NVARCHAR(100) DEFAULT '',
+  NameofChild NVARCHAR(100) DEFAULT '',
+  GradeofChild NVARCHAR(100) DEFAULT '',
+  Comments NVARCHAR(500) DEFAULT '',
+  Location NVARCHAR(100) DEFAULT '',
+  SchoolName NVARCHAR(100) DEFAULT '',
+  TermofClaim NVARCHAR(100) DEFAULT '',
+  DOBofChild NVARCHAR(100) DEFAULT '',
+  PRIMARY KEY(ID)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN taqa_db_ClaimReports AS parent ON (parent.ClaimId = parent_ClaimId)
+)

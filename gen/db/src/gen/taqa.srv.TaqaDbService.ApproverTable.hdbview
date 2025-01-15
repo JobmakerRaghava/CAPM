@@ -1,0 +1,29 @@
+VIEW taqa_srv_TaqaDbService_ApproverTable AS SELECT
+  ApproverTable_0.createdAt,
+  ApproverTable_0.createdBy,
+  ApproverTable_0.modifiedAt,
+  ApproverTable_0.modifiedBy,
+  ApproverTable_0.DELETED,
+  ApproverTable_0.parent_ID,
+  ApproverTable_0.parent_AppID,
+  ApproverTable_0.parent_Date,
+  ApproverTable_0.parent_EmployeeID,
+  ApproverTable_0.parent_CostCenter,
+  ApproverTable_0.parent_InternalOrder,
+  ApproverTable_0.parent_WbsCode,
+  ApproverTable_0.ID,
+  ApproverTable_0.ProjectCode,
+  ApproverTable_0."DATE",
+  ApproverTable_0.EmployeeID,
+  ApproverTable_0.AdminID,
+  ApproverTable_0.ProjectDesc,
+  ApproverTable_0.ApproverName,
+  ApproverTable_0.ApproverEmpID,
+  ApproverTable_0.Status,
+  ApproverTable_0."LEVELS",
+  ApproverTable_0.Comments
+FROM taqa_db_ApproverTable AS ApproverTable_0
+WHERE ApproverTable_0.DELETED = FALSE
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN taqa_srv_TaqaDbService_TimeSheetDetails AS parent ON (parent.ID = parent_ID AND parent.AppID = parent_AppID AND parent."DATE" = parent_Date AND parent.EmployeeID = parent_EmployeeID AND parent.CostCenter = parent_CostCenter AND parent.InternalOrder = parent_InternalOrder AND parent.WbsCode = parent_WbsCode)
+)

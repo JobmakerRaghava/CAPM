@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="ZHCM_PRJ_TS_POST_OTAB_SRV" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <EntityContainer Name="EntityContainer">
+        <EntitySet Name="OtabSet" EntityType="ZHCM_PRJ_TS_POST_OTAB_SRV.OtabSet"/>
+      </EntityContainer>
+      <EntityType Name="OtabSet">
+        <Key>
+          <PropertyRef Name="LogicalSystem"/>
+          <PropertyRef Name="ReferenceTransaction"/>
+          <PropertyRef Name="Employeenumber"/>
+          <PropertyRef Name="ReferenceKey"/>
+        </Key>
+        <Property Name="LogicalSystem" Type="Edm.String" MaxLength="10" Nullable="false"/>
+        <Property Name="ReferenceTransaction" Type="Edm.String" MaxLength="5" Nullable="false"/>
+        <Property Name="Employeenumber" Type="Edm.String" MaxLength="8" Nullable="false"/>
+        <Property Name="ReferenceKey" Type="Edm.String" MaxLength="20" Nullable="false"/>
+        <Property Name="Reversed" Type="Edm.String" MaxLength="1" Nullable="false"/>
+        <Property Name="Validitydate" Type="Edm.String" MaxLength="10" Nullable="false"/>
+        <Property Name="WageType" Type="Edm.String" MaxLength="4" Nullable="false"/>
+        <Property Name="Number" Type="Edm.String" MaxLength="20" Nullable="false"/>
+        <Property Name="Time" Type="Edm.String" MaxLength="6" Nullable="false"/>
+        <Property Name="Amount" Type="Edm.String" MaxLength="20" Nullable="false"/>
+        <Property Name="CostCenter" Type="Edm.String" MaxLength="10" Nullable="false"/>
+        <Property Name="WBS" Type="Edm.String" MaxLength="24" Nullable="false"/>
+        <Property Name="InternalOrder" Type="Edm.String" MaxLength="12" Nullable="false"/>
+        <Property Name="NetworkNumber" Type="Edm.String" MaxLength="12" Nullable="false"/>
+        <Property Name="ActivityNumber" Type="Edm.String" MaxLength="4" Nullable="false"/>
+      </EntityType>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,14 @@
+COLUMN TABLE taqa_db_LockTable (
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  DELETED BOOLEAN DEFAULT FALSE,
+  ID NVARCHAR(36) NOT NULL,
+  AppID NVARCHAR(10) NOT NULL,
+  ProjectCode NVARCHAR(100) NOT NULL DEFAULT '',
+  Department NVARCHAR(80) NOT NULL DEFAULT '',
+  Lock NVARCHAR(2) DEFAULT '',
+  ProjectDesc NVARCHAR(100) DEFAULT '',
+  PRIMARY KEY(ID, AppID, ProjectCode, Department)
+)

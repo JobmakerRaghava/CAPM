@@ -1,0 +1,22 @@
+COLUMN TABLE taqa_db_TravelTicketDetails (
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  DELETED BOOLEAN DEFAULT FALSE,
+  parent_ID NVARCHAR(36),
+  ID NVARCHAR(36) NOT NULL,
+  Airline NVARCHAR(80) DEFAULT '',
+  SectorTicket NVARCHAR(80) DEFAULT '',
+  TravelDate NVARCHAR(15) DEFAULT '',
+  TicketNumber NVARCHAR(80) DEFAULT '',
+  Sector NVARCHAR(250) DEFAULT '',
+  BaseAmount NVARCHAR(20) DEFAULT '',
+  TaxAmount NVARCHAR(80) DEFAULT '',
+  Currency NVARCHAR(10) DEFAULT '',
+  Amount NVARCHAR(100) DEFAULT '',
+  Gst NVARCHAR(80) DEFAULT '',
+  PRIMARY KEY(ID)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN taqa_db_TravelDetails AS parent ON (parent.ID = parent_ID)
+)

@@ -1,0 +1,25 @@
+VIEW taqa_srv_TaqaDbService_ApprovalStatus AS SELECT
+  TimeSheetDetails_0.EmployeeID,
+  TimeSheetDetails_0.EmployeeName,
+  TimeSheetDetails_0.JobTitle,
+  TimeSheetDetails_0.Department,
+  TimeSheetDetails_0.DepartmentDesc,
+  TimeSheetDetails_0.ProjectCode,
+  TimeSheetDetails_0.ProjectDesc,
+  TimeSheetDetails_0."DATE",
+  TimeSheetDetails_0.Status,
+  TimeSheetDetails_0.AppID,
+  TimeSheetDetails_0.WorkType,
+  TimeSheetDetails_0.LeaveCode,
+  TimeSheetDetails_0.WbsCode,
+  TimeSheetDetails_0.CostCenter,
+  TimeSheetDetails_0.InternalOrder,
+  TimeSheetDetails_0.Location,
+  TimeSheetDetails_0.Division,
+  TimeSheetDetails_0.CompanyCode,
+  TimeSheetDetails_0.ReturnIndicator,
+  TimeSheetDetails_0.QhseStatus
+FROM taqa_srv_TaqaDbService_TimeSheetDetails AS TimeSheetDetails_0
+WITH ASSOCIATIONS (
+  MANY TO MANY JOIN taqa_srv_TaqaDbService_ApproverHistory AS approverDetails ON (approverDetails.EmployeeID = EmployeeID AND approverDetails.ProjectCode = ProjectCode AND approverDetails."DATE" = "DATE")
+)

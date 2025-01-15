@@ -1,0 +1,20 @@
+COLUMN TABLE taqa_db_AccrualLogs (
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  DELETED BOOLEAN DEFAULT FALSE,
+  ID NVARCHAR(36) NOT NULL,
+  ExternalCode NVARCHAR(100) DEFAULT '',
+  EmployeeID NVARCHAR(100) DEFAULT '',
+  TimeAccountExternalCode NVARCHAR(100) DEFAULT '',
+  BookingUnit NVARCHAR(100) DEFAULT '',
+  ReferenceObject NVARCHAR(100) DEFAULT '',
+  BookingType NVARCHAR(100) DEFAULT '',
+  BookingDate NVARCHAR(100) DEFAULT '',
+  EmployeeTime NVARCHAR(100) DEFAULT '',
+  BookingAmount NVARCHAR(100) DEFAULT '',
+  Comment NVARCHAR(100) DEFAULT '',
+  Status NVARCHAR(100) DEFAULT '',
+  PRIMARY KEY(ID)
+)

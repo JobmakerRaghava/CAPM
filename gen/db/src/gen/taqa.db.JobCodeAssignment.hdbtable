@@ -1,0 +1,24 @@
+COLUMN TABLE taqa_db_JobCodeAssignment (
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  DELETED BOOLEAN DEFAULT FALSE,
+  parent_ID NVARCHAR(36),
+  parent_AppID NVARCHAR(10),
+  parent_Date NVARCHAR(10),
+  parent_EmployeeID NVARCHAR(10) DEFAULT '',
+  parent_CostCenter NVARCHAR(100) DEFAULT '',
+  parent_InternalOrder NVARCHAR(100) DEFAULT '',
+  parent_WbsCode NVARCHAR(100) DEFAULT '',
+  EmployeeID NVARCHAR(10) NOT NULL DEFAULT '',
+  StartDate NVARCHAR(10) NOT NULL DEFAULT '',
+  EndDate NVARCHAR(10) NOT NULL DEFAULT '',
+  CostCenter NVARCHAR(100) NOT NULL DEFAULT '',
+  InternalOrder NVARCHAR(100) NOT NULL DEFAULT '',
+  WbsCode NVARCHAR(100) NOT NULL DEFAULT '',
+  JobCode NVARCHAR(100) DEFAULT '',
+  PRIMARY KEY(EmployeeID, StartDate, EndDate, CostCenter, InternalOrder, WbsCode)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN taqa_db_TimeSheetDetails AS parent ON (parent.ID = parent_ID AND parent.AppID = parent_AppID AND parent."DATE" = parent_Date AND parent.EmployeeID = parent_EmployeeID AND parent.CostCenter = parent_CostCenter AND parent.InternalOrder = parent_InternalOrder AND parent.WbsCode = parent_WbsCode)
+)

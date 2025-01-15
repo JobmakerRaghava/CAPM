@@ -1,0 +1,22 @@
+VIEW taqa_srv_TaqaDbService_TravelTicketDetails AS SELECT
+  TravelTicketDetails_0.createdAt,
+  TravelTicketDetails_0.createdBy,
+  TravelTicketDetails_0.modifiedAt,
+  TravelTicketDetails_0.modifiedBy,
+  TravelTicketDetails_0.DELETED,
+  TravelTicketDetails_0.parent_ID,
+  TravelTicketDetails_0.ID,
+  TravelTicketDetails_0.Airline,
+  TravelTicketDetails_0.SectorTicket,
+  TravelTicketDetails_0.TravelDate,
+  TravelTicketDetails_0.TicketNumber,
+  TravelTicketDetails_0.Sector,
+  TravelTicketDetails_0.BaseAmount,
+  TravelTicketDetails_0.TaxAmount,
+  TravelTicketDetails_0.Currency,
+  TravelTicketDetails_0.Amount,
+  TravelTicketDetails_0.Gst
+FROM taqa_db_TravelTicketDetails AS TravelTicketDetails_0
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN taqa_srv_TaqaDbService_TravelDetails AS parent ON (parent.ID = parent_ID)
+)

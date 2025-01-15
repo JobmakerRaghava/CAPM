@@ -1,0 +1,25 @@
+VIEW taqa_srv_TaqaDbService_JobCodeAssignment AS SELECT
+  JobCodeAssignment_0.createdAt,
+  JobCodeAssignment_0.createdBy,
+  JobCodeAssignment_0.modifiedAt,
+  JobCodeAssignment_0.modifiedBy,
+  JobCodeAssignment_0.DELETED,
+  JobCodeAssignment_0.parent_ID,
+  JobCodeAssignment_0.parent_AppID,
+  JobCodeAssignment_0.parent_Date,
+  JobCodeAssignment_0.parent_EmployeeID,
+  JobCodeAssignment_0.parent_CostCenter,
+  JobCodeAssignment_0.parent_InternalOrder,
+  JobCodeAssignment_0.parent_WbsCode,
+  JobCodeAssignment_0.EmployeeID,
+  JobCodeAssignment_0.StartDate,
+  JobCodeAssignment_0.EndDate,
+  JobCodeAssignment_0.CostCenter,
+  JobCodeAssignment_0.InternalOrder,
+  JobCodeAssignment_0.WbsCode,
+  JobCodeAssignment_0.JobCode
+FROM taqa_db_JobCodeAssignment AS JobCodeAssignment_0
+WHERE JobCodeAssignment_0.DELETED = FALSE
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN taqa_srv_TaqaDbService_TimeSheetDetails AS parent ON (parent.ID = parent_ID AND parent.AppID = parent_AppID AND parent."DATE" = parent_Date AND parent.EmployeeID = parent_EmployeeID AND parent.CostCenter = parent_CostCenter AND parent.InternalOrder = parent_InternalOrder AND parent.WbsCode = parent_WbsCode)
+)

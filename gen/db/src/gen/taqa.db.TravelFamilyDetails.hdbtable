@@ -1,0 +1,19 @@
+COLUMN TABLE taqa_db_TravelFamilyDetails (
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  DELETED BOOLEAN DEFAULT FALSE,
+  parent_ID NVARCHAR(36),
+  ID NVARCHAR(36) NOT NULL,
+  ExternalCode NVARCHAR(100) DEFAULT '',
+  FirstName NVARCHAR(100) DEFAULT '',
+  MiddleName NVARCHAR(100) DEFAULT '',
+  LastName NVARCHAR(100) DEFAULT '',
+  Title NVARCHAR(100) DEFAULT '',
+  Relationship NVARCHAR(100) DEFAULT '',
+  DateOfBirth NVARCHAR(100) DEFAULT '',
+  PRIMARY KEY(ID)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN taqa_db_TravelDetails AS parent ON (parent.ID = parent_ID)
+)

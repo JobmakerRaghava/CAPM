@@ -1,0 +1,32 @@
+VIEW taqa_srv_TaqaDbService_Claims AS SELECT
+  Claims_0.createdAt,
+  Claims_0.createdBy,
+  Claims_0.modifiedAt,
+  Claims_0.modifiedBy,
+  Claims_0.DELETED,
+  Claims_0.parent_ClaimId,
+  Claims_0.ID,
+  Claims_0.AssignmentNumber,
+  Claims_0.Attachment,
+  Claims_0.AttachmentType,
+  Claims_0.BenefitSubtype,
+  Claims_0.EducationAssistance,
+  Claims_0.WageDescription,
+  Claims_0.Description,
+  Claims_0.Amount,
+  Claims_0.WageType,
+  Claims_0.AcademicStartDate,
+  Claims_0.AcademicEndDate,
+  Claims_0.AgeofChild,
+  Claims_0.NameofChild,
+  Claims_0.GradeofChild,
+  Claims_0.Comments,
+  Claims_0.Location,
+  Claims_0.SchoolName,
+  Claims_0.TermofClaim,
+  Claims_0.DOBofChild
+FROM taqa_db_Claims AS Claims_0
+WHERE Claims_0.DELETED = FALSE
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN taqa_srv_TaqaDbService_ClaimReports AS parent ON (parent.ClaimId = parent_ClaimId)
+)

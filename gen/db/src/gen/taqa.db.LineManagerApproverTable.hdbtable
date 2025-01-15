@@ -1,0 +1,17 @@
+COLUMN TABLE taqa_db_LineManagerApproverTable (
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  DELETED BOOLEAN DEFAULT FALSE,
+  ID NVARCHAR(36) NOT NULL,
+  EmployeeID NVARCHAR(10) DEFAULT '',
+  EmployeeName NVARCHAR(100) DEFAULT '',
+  EmployeeEmailID NVARCHAR(100) DEFAULT '',
+  ApproverName NVARCHAR(100) DEFAULT '',
+  ApproverEmpID NVARCHAR(80) DEFAULT '',
+  ApproverEmailID NVARCHAR(80) DEFAULT '',
+  CompanyCode NVARCHAR(10) DEFAULT '',
+  "LEVELS" NVARCHAR(10) DEFAULT '',
+  PRIMARY KEY(ID)
+)

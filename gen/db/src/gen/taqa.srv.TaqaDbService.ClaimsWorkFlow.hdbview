@@ -1,0 +1,17 @@
+VIEW taqa_srv_TaqaDbService_ClaimsWorkFlow AS SELECT
+  ClaimsWorkFlow_0.createdAt,
+  ClaimsWorkFlow_0.createdBy,
+  ClaimsWorkFlow_0.modifiedAt,
+  ClaimsWorkFlow_0.modifiedBy,
+  ClaimsWorkFlow_0.DELETED,
+  ClaimsWorkFlow_0.parent_ClaimId,
+  ClaimsWorkFlow_0.ID,
+  ClaimsWorkFlow_0.Status,
+  ClaimsWorkFlow_0.Level,
+  ClaimsWorkFlow_0.ApproverName,
+  ClaimsWorkFlow_0.LastModifiedDateTime
+FROM taqa_db_ClaimsWorkFlow AS ClaimsWorkFlow_0
+WHERE ClaimsWorkFlow_0.DELETED = FALSE
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN taqa_srv_TaqaDbService_ClaimReports AS parent ON (parent.ClaimId = parent_ClaimId)
+)

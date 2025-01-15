@@ -1,0 +1,31 @@
+COLUMN TABLE taqa_db_ClaimReports (
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  DELETED BOOLEAN DEFAULT FALSE,
+  ClaimId NVARCHAR(100) NOT NULL DEFAULT '',
+  Status NVARCHAR(100) DEFAULT '',
+  Approver NVARCHAR(100) DEFAULT '',
+  EmployeeNumber NVARCHAR(100) DEFAULT '',
+  EmployeeName NVARCHAR(100) DEFAULT '',
+  BenefitCode NVARCHAR(100) DEFAULT '',
+  ProcessDescription NVARCHAR(100) DEFAULT '',
+  ESRCreatedDate NVARCHAR(100) DEFAULT '',
+  CompanyCode NVARCHAR(100) DEFAULT '',
+  CompanyDescription NVARCHAR(100) DEFAULT '',
+  JobTitle NVARCHAR(100) DEFAULT '',
+  Function NVARCHAR(100) DEFAULT '',
+  Department NVARCHAR(100) DEFAULT '',
+  Division NVARCHAR(100) DEFAULT '',
+  LocationGroup NVARCHAR(100) DEFAULT '',
+  Currency NVARCHAR(100) DEFAULT '',
+  CostCentre NVARCHAR(100) DEFAULT '',
+  CostCenterDesc NVARCHAR(100) DEFAULT '',
+  WorkflowDateTime NVARCHAR(100) DEFAULT '',
+  CurrentLevel NVARCHAR(100) DEFAULT '',
+  PRIMARY KEY(ClaimId)
+) WITH ASSOCIATIONS (
+  MANY TO MANY JOIN taqa_db_Claims AS ItsClaims ON (ItsClaims.parent_ClaimId = ClaimId),
+  MANY TO MANY JOIN taqa_db_ClaimsWorkFlow AS ClaimsWorkFlowData ON (ClaimsWorkFlowData.parent_ClaimId = ClaimId)
+)

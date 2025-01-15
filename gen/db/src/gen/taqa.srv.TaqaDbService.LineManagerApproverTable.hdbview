@@ -1,0 +1,17 @@
+VIEW taqa_srv_TaqaDbService_LineManagerApproverTable AS SELECT
+  LineManagerApproverTable_0.createdAt,
+  LineManagerApproverTable_0.createdBy,
+  LineManagerApproverTable_0.modifiedAt,
+  LineManagerApproverTable_0.modifiedBy,
+  LineManagerApproverTable_0.DELETED,
+  LineManagerApproverTable_0.ID,
+  LineManagerApproverTable_0.EmployeeID,
+  LineManagerApproverTable_0.EmployeeName,
+  LineManagerApproverTable_0.EmployeeEmailID,
+  LineManagerApproverTable_0.ApproverName,
+  LineManagerApproverTable_0.ApproverEmpID,
+  LineManagerApproverTable_0.ApproverEmailID,
+  LineManagerApproverTable_0.CompanyCode,
+  LineManagerApproverTable_0."LEVELS"
+FROM taqa_db_LineManagerApproverTable AS LineManagerApproverTable_0
+WHERE LineManagerApproverTable_0.DELETED = FALSE

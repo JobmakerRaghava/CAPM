@@ -1,0 +1,16 @@
+COLUMN TABLE taqa_db_ClaimsWorkFlow (
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  DELETED BOOLEAN DEFAULT FALSE,
+  parent_ClaimId NVARCHAR(100) DEFAULT '',
+  ID NVARCHAR(36) NOT NULL,
+  Status NVARCHAR(100) DEFAULT '',
+  Level NVARCHAR(100) DEFAULT '',
+  ApproverName NVARCHAR(100) DEFAULT '',
+  LastModifiedDateTime NVARCHAR(100) DEFAULT '',
+  PRIMARY KEY(ID)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN taqa_db_ClaimReports AS parent ON (parent.ClaimId = parent_ClaimId)
+)

@@ -1,0 +1,34 @@
+VIEW taqa_srv_TaqaDbService_Allowance AS SELECT
+  Allowance_0.createdAt,
+  Allowance_0.createdBy,
+  Allowance_0.modifiedAt,
+  Allowance_0.modifiedBy,
+  Allowance_0.DELETED,
+  Allowance_0.parent_ID,
+  Allowance_0.parent_AppID,
+  Allowance_0.parent_Date,
+  Allowance_0.parent_EmployeeID,
+  Allowance_0.parent_CostCenter,
+  Allowance_0.parent_InternalOrder,
+  Allowance_0.parent_WbsCode,
+  Allowance_0.EmployeeID,
+  Allowance_0."DATE",
+  Allowance_0.AllowanceID,
+  Allowance_0.CostCenter,
+  Allowance_0.InternalOrder,
+  Allowance_0.WbsCode,
+  Allowance_0.AllowanceDesc,
+  Allowance_0.Amount,
+  Allowance_0."NUMBER",
+  Allowance_0.ReferenceKey,
+  Allowance_0.Status,
+  Allowance_0.Reversed,
+  Allowance_0.HistoryRecord,
+  Allowance_0.ErrorIndicator,
+  Allowance_0.VALIDFROM,
+  Allowance_0.VALIDTO
+FROM taqa_db_Allowance AS Allowance_0
+WHERE Allowance_0.DELETED = FALSE
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN taqa_srv_TaqaDbService_TimeSheetDetails AS parent ON (parent.ID = parent_ID AND parent.AppID = parent_AppID AND parent."DATE" = parent_Date AND parent.EmployeeID = parent_EmployeeID AND parent.CostCenter = parent_CostCenter AND parent.InternalOrder = parent_InternalOrder AND parent.WbsCode = parent_WbsCode)
+)

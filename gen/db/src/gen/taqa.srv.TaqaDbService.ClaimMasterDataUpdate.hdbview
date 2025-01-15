@@ -1,0 +1,31 @@
+VIEW taqa_srv_TaqaDbService_ClaimMasterDataUpdate AS SELECT
+  ClaimReports_0.createdAt,
+  ClaimReports_0.createdBy,
+  ClaimReports_0.modifiedAt,
+  ClaimReports_0.modifiedBy,
+  ClaimReports_0.DELETED,
+  ClaimReports_0.ClaimId,
+  ClaimReports_0.Status,
+  ClaimReports_0.Approver,
+  ClaimReports_0.EmployeeNumber,
+  ClaimReports_0.EmployeeName,
+  ClaimReports_0.BenefitCode,
+  ClaimReports_0.ProcessDescription,
+  ClaimReports_0.ESRCreatedDate,
+  ClaimReports_0.CompanyCode,
+  ClaimReports_0.CompanyDescription,
+  ClaimReports_0.JobTitle,
+  ClaimReports_0.Function,
+  ClaimReports_0.Department,
+  ClaimReports_0.Division,
+  ClaimReports_0.LocationGroup,
+  ClaimReports_0.Currency,
+  ClaimReports_0.CostCentre,
+  ClaimReports_0.CostCenterDesc,
+  ClaimReports_0.WorkflowDateTime,
+  ClaimReports_0.CurrentLevel
+FROM taqa_srv_TaqaDbService_ClaimReports AS ClaimReports_0
+WITH ASSOCIATIONS (
+  MANY TO MANY JOIN taqa_srv_TaqaDbService_Claims AS ItsClaims ON (ItsClaims.parent_ClaimId = ClaimId),
+  MANY TO MANY JOIN taqa_srv_TaqaDbService_ClaimsWorkFlow AS ClaimsWorkFlowData ON (ClaimsWorkFlowData.parent_ClaimId = ClaimId)
+)

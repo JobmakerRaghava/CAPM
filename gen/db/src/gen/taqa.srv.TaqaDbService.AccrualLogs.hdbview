@@ -1,0 +1,20 @@
+VIEW taqa_srv_TaqaDbService_AccrualLogs AS SELECT
+  AccrualLogs_0.createdAt,
+  AccrualLogs_0.createdBy,
+  AccrualLogs_0.modifiedAt,
+  AccrualLogs_0.modifiedBy,
+  AccrualLogs_0.DELETED,
+  AccrualLogs_0.ID,
+  AccrualLogs_0.ExternalCode,
+  AccrualLogs_0.EmployeeID,
+  AccrualLogs_0.TimeAccountExternalCode,
+  AccrualLogs_0.BookingUnit,
+  AccrualLogs_0.ReferenceObject,
+  AccrualLogs_0.BookingType,
+  AccrualLogs_0.BookingDate,
+  AccrualLogs_0.EmployeeTime,
+  AccrualLogs_0.BookingAmount,
+  AccrualLogs_0.Comment,
+  AccrualLogs_0.Status
+FROM taqa_db_AccrualLogs AS AccrualLogs_0
+WHERE AccrualLogs_0.DELETED = FALSE
