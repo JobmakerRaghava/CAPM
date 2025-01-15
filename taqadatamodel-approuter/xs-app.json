@@ -1,0 +1,13 @@
+{
+  "authenticationMethod": "none",
+  "routes": [
+    {
+      "source": "^/v2/(.*)$",
+      "target": "/v2/$1",
+      "destination": "taqamodel-srv-url",
+      "authenticationType": "xsuaa",
+      "csrfProtection": false
+    }
+  ],
+  "welcomeFile": "/tagamodeluitagamodelui"
+}
